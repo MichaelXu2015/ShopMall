@@ -1,0 +1,15 @@
+server:
+  port: 8004
+  
+spring:
+  application:
+    name: shop-user #eureka显示的微服务名字
+  
+eureka:
+  client:
+    service-url: 
+      defaultZone: http://localhost:7001/eureka #向这个eureka服务地址注册
+      
+  instance:
+    instance-id: shop-user8004
+    prefer-ip-address: true

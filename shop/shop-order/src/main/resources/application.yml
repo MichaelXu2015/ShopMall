@@ -1,0 +1,15 @@
+server:
+  port: 8002
+  
+spring:
+  application:
+    name: shop-order #eureka显示的微服务名字
+    
+    
+eureka:
+  client:
+    service-url:
+      defalutZone: http://localhost:7001/eureka #向此服务注册中心
+  instance:
+    instance-id: shop-order8002
+    prefer-ip-address: true

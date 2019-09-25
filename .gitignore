@@ -1,0 +1,36 @@
+*.class
+
+#package file
+*.war
+*.ear
+
+#maven
+target/
+
+#eclipse
+.settings/
+.project
+.metadata
+.recommenders
+
+
+#idea
+.idea/
+/idea/
+*.ipr
+*.iml
+*.iws
+
+#temp file
+*.log
+*.cache
+*.diff
+*.patch
+*.tmp
+
+#system 
+.DS_Store
+Thumbs
+
+#git
+*.git
