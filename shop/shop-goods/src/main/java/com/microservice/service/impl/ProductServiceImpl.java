@@ -19,4 +19,19 @@ public class ProductServiceImpl implements ProductService {
 		return productMapper.findProductById(productId);
 	}
 
+	@Override
+	public Integer insertProduct(Product product) {
+		return productMapper.insertProduct(product);
+	}
+
+	@Override
+	public Integer updateProduct(Product product) {
+		return productMapper.updateProduct(product);
+	}
+
+	@Override
+	public Integer deleteProductById(Integer productId) {
+		return productMapper.deleteProductById(productId);
+	}
+
 }

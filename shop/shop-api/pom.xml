@@ -7,6 +7,14 @@
   </parent>
   <artifactId>shop-api</artifactId>
   
+  <dependencies>
+  	  <dependency>
+      <groupId>org.codehaus.jackson</groupId>
+      <artifactId>jackson-mapper-asl</artifactId>
+      <version>1.9.12</version>
+    </dependency>
+  </dependencies>
+  
   <!--  此处引用的包,在其他model里能用,因为其他model引用了此shop-api工程
   		maven的传递性  -->
  <!--  <dependencies>

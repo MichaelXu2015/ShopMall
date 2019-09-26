@@ -9,4 +9,11 @@ public interface ProductMapper {
 	
 	Product findProductById(String productId);
 
+	Integer insertProduct(Product product);
+	
+	
+	Integer updateProduct(Product product);
+	
+	Integer deleteProductById(Integer productId);
+	
 }

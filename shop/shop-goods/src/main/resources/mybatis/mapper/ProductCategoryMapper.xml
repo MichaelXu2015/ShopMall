@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.microservice.dao.ProductCategoryMapper">
+
+
+	
+	<select id="findProductCategoryByParentId" resultType="ProductCategory">
+		SELECT * FROM product_category WHERE category_id IN (SELECT category_id FROM product_category WHERE parent_id = #{parentId})
+	</select>
+	
+	
+	<insert id="insertProductCategory" parameterType="com.microservice.entities.ProductCategory">
+		INSERT INTO product_category(category_name,category_code,parent_id,cretae_time,update_time)
+		VALUES(categoryName,categoryCode,parentId,now(),now())
+	</insert>
+	
+	<delete id="deleteProductCategory">
+		delete from product_info where product_id = #{productId}
+	</delete>
+	
+	<update id="updateProductCategory">
+		UPDATE product_category SET category_name=#{categoryName},category_code=#{categoryCode},
+		parent_id=#{parentId},update_time=#{updateTime} WHERE category_id=#{categoryId}
+	</update>
+	
+	
+	
+	
+
+</mapper>

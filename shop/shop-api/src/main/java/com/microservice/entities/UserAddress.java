@@ -1,22 +1,21 @@
 package com.microservice.entities;
 
 import java.util.Date;
-
 /**
- * 用户
+ * 用户地址
  * @author qzy
  *
  */
-public class User {
-	
+public class UserAddress {
+
 	private String userId;
 	private String userName;
 	private String fullName;
-	private String password;
 	private String phoneNumber;
-	private String gender;
-	private String email;
-	private String userStatus;
+	private String province;
+	private String city;
+	private String area;
+	private String detailAddr;
 	private Date createTime;
 	private Date updateTime;
 	public String getUserId() {
@@ -37,35 +36,35 @@ public class User {
 	public void setFullName(String fullName) {
 		this.fullName = fullName;
 	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
 	public String getPhoneNumber() {
 		return phoneNumber;
 	}
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-	public String getGender() {
-		return gender;
+	public String getProvince() {
+		return province;
 	}
-	public void setGender(String gender) {
-		this.gender = gender;
+	public void setProvince(String province) {
+		this.province = province;
 	}
-	public String getEmail() {
-		return email;
+	public String getCity() {
+		return city;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setCity(String city) {
+		this.city = city;
 	}
-	public String getUserStatus() {
-		return userStatus;
+	public String getArea() {
+		return area;
 	}
-	public void setUserStatus(String userStatus) {
-		this.userStatus = userStatus;
+	public void setArea(String area) {
+		this.area = area;
+	}
+	public String getDetailAddr() {
+		return detailAddr;
+	}
+	public void setDetailAddr(String detailAddr) {
+		this.detailAddr = detailAddr;
 	}
 	public Date getCreateTime() {
 		return createTime;
@@ -81,14 +80,9 @@ public class User {
 	}
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", userName=" + userName + ", fullName=" + fullName + ", password=" + password
-				+ ", phoneNumber=" + phoneNumber + ", gender=" + gender + ", email=" + email + ", userStatus="
-				+ userStatus + ", createTime=" + createTime + ", updateTime=" + updateTime + "]";
+		return "UserAddress [userId=" + userId + ", userName=" + userName + ", fullName=" + fullName + ", phoneNumber="
+				+ phoneNumber + ", province=" + province + ", city=" + city + ", area=" + area + ", detailAddr="
+				+ detailAddr + ", createTime=" + createTime + ", updateTime=" + updateTime + "]";
 	}
 	
-	
-	
-	
-
-
 }
