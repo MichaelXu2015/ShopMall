@@ -1,5 +1,6 @@
 package com.microservice.service.impl;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,11 +13,14 @@ public class ProductServiceImpl implements ProductService {
 	
 	@Autowired
 	ProductMapper productMapper;
+	
+	Logger logger = Logger.getLogger(getClass());
 
 	@Override
 	public Product findProductById(String productId) {
-		
-		return productMapper.findProductById(productId);
+		Product product = productMapper.findProductById(productId);
+		logger.info("------------xu-----------"+product);
+		return product;
 	}
 
 	@Override

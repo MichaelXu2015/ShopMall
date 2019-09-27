@@ -16,7 +16,11 @@ import com.microservice.common.ServerResponse;
 import com.microservice.entities.Product;
 import com.microservice.service.ProductService;
 
-
+/**
+ * 服务提供者返回的数据不要封装成响应类型，让消费者端去封装
+ * @author qzy
+ *
+ */
 @RestController
 @RequestMapping("/product")
 public class ProductController {
@@ -27,39 +31,30 @@ public class ProductController {
 	Logger logger = Logger.getLogger(getClass());
 	
 	@GetMapping("/getProduct/{productId}")
-	public ServerResponse<Product> getProductById(@PathVariable("productId") String productId) {
+	public Product getProductById(@PathVariable("productId") String productId) {
 		logger.info("getProductById:"+productId);
 		Product product = productService.findProductById(productId);
-		if(product!=null) {
-			return ServerResponse.createSuccess(product);
-		}
-		return ServerResponse.createFail("没有查到此产品");
+		return product;
+
 	}
 	
 	
 	@PostMapping("/insertProduct")
-	public ServerResponse insertProduct(@RequestBody Product product) {
-		if(productService.insertProduct(product)>0) {
-			return ServerResponse.createSuccess();
-		}
-		return ServerResponse.createFail();
+	public Integer insertProduct(@RequestBody Product product) {
+		return productService.insertProduct(product);
+	
 	}
 	
 	@PutMapping("/updateProduct")
-	public ServerResponse updateProduct(@RequestBody Product product) {
-		if(productService.updateProduct(product)>0) {
-			return ServerResponse.createSuccess();
-		}
-		return ServerResponse.createFail();
+	public Integer updateProduct(@RequestBody Product product) {
+		return productService.updateProduct(product);
+		
 	}
 	
 	@DeleteMapping("/deleteProductById/{productId}")
-	public ServerResponse deleteProductById(@PathVariable("productId") Integer productId) {
+	public Integer deleteProductById(@PathVariable("productId") Integer productId) {
 		Integer result = productService.deleteProductById(productId);
-		if(result>0) {
-			return ServerResponse.createSuccess();
-		}
-		return ServerResponse.createFail();
+		return result;
 	}
 	
 	

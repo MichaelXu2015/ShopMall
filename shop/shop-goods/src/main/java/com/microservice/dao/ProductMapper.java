@@ -11,7 +11,6 @@ public interface ProductMapper {
 
 	Integer insertProduct(Product product);
 	
-	
 	Integer updateProduct(Product product);
 	
 	Integer deleteProductById(Integer productId);

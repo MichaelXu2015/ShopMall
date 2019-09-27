@@ -3,7 +3,7 @@ server:
   
 spring:
   application:
-    name: shop-goods #eureka显示的微服务名字
+    name: shop-product #eureka显示的微服务名字
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: org.gjt.mm.mysql.Driver
@@ -22,10 +22,10 @@ mybatis:
   mapper-locations:
   - classpath:mybatis/mapper/*.xml #mybatis映射文件路径
   
-#eureka:
-#  client:
-#    service-url: 
-#      defaultZone: http://localhost:7001/eureka   #向这个服务中心注册地址  
-#  instance:
-#    instance-id: shop-goods8001
-#    prefer-ip-address: true #显示ip
+eureka:
+  client:
+    service-url: 
+      defaultZone: http://localhost:7001/eureka/   #向这个服务中心注册地址   http://localhost:7001/eureka
+  instance:
+    instance-id: shop-product8001
+    prefer-ip-address: true #显示ip

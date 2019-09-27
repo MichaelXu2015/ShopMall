@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.microservice.common.ServerResponse;
 import com.microservice.entities.ProductCategory;
 import com.microservice.service.ProductCategoryService;
 
@@ -23,22 +25,33 @@ public class ProductCategoryController {
 
 	
 	@PostMapping("/insertProductCategory")
-	public Integer insertProductCategory(@RequestBody ProductCategory productCategory) {
-		return productCategoryService.insertProductCategory(productCategory);
+	public ServerResponse insertProductCategory(@RequestBody ProductCategory productCategory) {
+		if(productCategoryService.insertProductCategory(productCategory)>0) {
+			return ServerResponse.createSuccess();
+		}
+		return ServerResponse.createFail();
 	}
 	
 	@DeleteMapping("/deleteProductCategory/{categoryId}")
-	public Integer deleteProductCategory(@PathVariable("categoryId") Integer categoryId) {
-		return productCategoryService.deleteProductCategory(categoryId);
+	public ServerResponse deleteProductCategory(@PathVariable("categoryId") Integer categoryId) {
+		if(productCategoryService.deleteProductCategory(categoryId)>0) {
+			return ServerResponse.createSuccess();
+		}
+		return ServerResponse.createFail();
+	
 	}
 	
 	@PutMapping("/updateProductCategory")
-	public Integer updateProductCategory(@RequestBody ProductCategory productCategory) {
-		return productCategoryService.updateProductCategory(productCategory);
+	public ServerResponse updateProductCategory(@RequestBody ProductCategory productCategory) {
+		if(productCategoryService.updateProductCategory(productCategory)>0) {
+			return ServerResponse.createSuccess();
+		}
+		return ServerResponse.createFail();
+		
 	}
 	
 	@GetMapping("/findProductCategoryByParentId/{parentId}")
-	public List<ProductCategory> findProductCategoryByParentId(@PathVariable("parentId") Integer parentId){
-		return productCategoryService.findProductCategoryByParentId(parentId);
+	public ServerResponse findProductCategoryByParentId(@PathVariable("parentId") Integer parentId){
+		return ServerResponse.createSuccess(productCategoryService.findProductCategoryByParentId(parentId));
 	}
 }

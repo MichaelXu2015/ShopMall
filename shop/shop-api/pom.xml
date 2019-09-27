@@ -8,11 +8,15 @@
   <artifactId>shop-api</artifactId>
   
   <dependencies>
-  	  <dependency>
+  	<dependency>
       <groupId>org.codehaus.jackson</groupId>
       <artifactId>jackson-mapper-asl</artifactId>
       <version>1.9.12</version>
     </dependency>
+    <dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-feign</artifactId>
+	</dependency>
   </dependencies>
   
   <!--  此处引用的包,在其他model里能用,因为其他model引用了此shop-api工程

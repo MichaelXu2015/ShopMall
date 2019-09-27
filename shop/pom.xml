@@ -93,5 +93,6 @@
   	<module>eureka-server</module>
   	<module>shop-pay</module>
   	<module>shop-order</module>
+  	<module>shop-consumer</module>
   </modules>
 </project>

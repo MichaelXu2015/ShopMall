@@ -1,5 +1,6 @@
 package com.microservice.entities;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 /**
@@ -7,7 +8,8 @@ import java.util.Date;
  * @author qzy
  *
  */
-public class Product {
+@SuppressWarnings("serial")
+public class Product implements Serializable{
 	
 	private String productId;
 	private String productName;
