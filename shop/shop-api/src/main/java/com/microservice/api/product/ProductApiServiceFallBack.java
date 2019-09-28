@@ -9,7 +9,7 @@ import com.microservice.entities.Product;
 import feign.hystrix.FallbackFactory;
 
 /**
-  *   商品Api服务异常熔断处理,消费者请求服务提供者失败
+  *  商品Api服务异常熔断处理,消费者请求服务提供者失败
  * @author qzy
  *
  */
@@ -46,7 +46,7 @@ public class ProductApiServiceFallBack implements FallbackFactory<ProductApiServ
 			}
 			
 			@Override
-			public Integer deleteProductById(Integer productId) {
+			public Integer deleteProductById(String productId) {
 				// TODO Auto-generated method stub
 				return null;
 			}

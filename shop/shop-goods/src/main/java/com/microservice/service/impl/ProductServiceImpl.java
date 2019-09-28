@@ -19,6 +19,7 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public Product findProductById(String productId) {
 		Product product = productMapper.findProductById(productId);
+		//int a = 1/0; 此处若抛出异常,则会被消费者端的ProductApiServiceFallBack捕获
 		logger.info("------------xu-----------"+product);
 		return product;
 	}
@@ -34,8 +35,11 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public Integer deleteProductById(Integer productId) {
+	public Integer deleteProductById(String productId) {
+		// TODO Auto-generated method stub
 		return productMapper.deleteProductById(productId);
 	}
+
+	
 
 }

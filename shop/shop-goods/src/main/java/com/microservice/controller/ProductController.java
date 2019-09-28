@@ -52,9 +52,8 @@ public class ProductController {
 	}
 	
 	@DeleteMapping("/deleteProductById/{productId}")
-	public Integer deleteProductById(@PathVariable("productId") Integer productId) {
-		Integer result = productService.deleteProductById(productId);
-		return result;
+	public Integer deleteProductById(@PathVariable("productId") String productId) {
+		return productService.deleteProductById(productId);
 	}
 	
 	

@@ -18,4 +18,21 @@ public class ProductServiceImpl implements ProductService{
 		return productApiService.findProductById(productId);
 	}
 
+	@Override
+	public Integer insertProduct(Product product) {
+		return productApiService.insertProduct(product);
+	}
+
+	@Override
+	public Integer updateProduct(Product product) {
+		return productApiService.updateProduct(product);
+	}
+
+	@Override
+	public Integer deleteProductById(String productId) {
+		return productApiService.deleteProductById(productId);
+	}
+	
+	
+
 }

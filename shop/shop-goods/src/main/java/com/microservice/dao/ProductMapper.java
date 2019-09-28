@@ -13,6 +13,6 @@ public interface ProductMapper {
 	
 	Integer updateProduct(Product product);
 	
-	Integer deleteProductById(Integer productId);
+	Integer deleteProductById(String productId);
 	
 }

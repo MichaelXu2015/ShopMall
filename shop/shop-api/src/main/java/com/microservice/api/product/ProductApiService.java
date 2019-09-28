@@ -33,5 +33,5 @@ public interface ProductApiService {
 	Integer updateProduct(@RequestBody Product product);
 	
 	@DeleteMapping("/product/deleteProductById/{productId}")
-	Integer deleteProductById(@PathVariable("productId") Integer productId);
+	Integer deleteProductById(@PathVariable("productId") String productId);
 }
