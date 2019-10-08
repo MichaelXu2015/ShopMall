@@ -6,21 +6,21 @@
 
 	
 	<select id="findProductById" resultType="Product">
-		select * from product_info where product_id = #{productId}
+		select * from product where product_id = #{productId}
 	</select>
 	
 	
 	<insert id="insertProduct" parameterType="com.microservice.entities.Product">
-		INSERT INTO product_info(product_id,product_name,category_code,price,descript,product_status,product_img,stock,category_id,category_name,brand_id,brand_name,create_time,update_time)
+		INSERT INTO product(product_id,product_name,category_code,price,descript,product_status,product_img,stock,category_id,category_name,brand_id,brand_name,create_time,update_time)
 		VALUES (#{productId},#{productName},#{categoryCode},#{price},#{descript},#{productStatus},#{productImg},#{stock},#{categoryId},#{categoryName},#{brandId},#{brandName},now(),now());
 	</insert>
 	
 	<delete id="deleteProductById">
-		delete from product_info where product_id = #{productId}
+		delete from product where product_id = #{productId}
 	</delete>
 	
 	<update id="updateProduct">
-		update product_info 
+		update product
 		set product_name =#{productName},
 		category_code=#{categoryCode},price=#{price},descript=#{descript},
 		product_status=#{productStatus},product_img=#{productImg},

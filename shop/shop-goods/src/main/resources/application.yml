@@ -25,7 +25,7 @@ mybatis:
 eureka:
   client:
     service-url: 
-      defaultZone: http://localhost:7001/eureka/   #向这个服务中心注册地址   http://localhost:7001/eureka
+      defaultZone: http://localhost:7001/eureka/ #向这个服务中心注册地址   http://localhost:7001/eureka
   instance:
     instance-id: shop-product8001
     prefer-ip-address: true #显示ip
