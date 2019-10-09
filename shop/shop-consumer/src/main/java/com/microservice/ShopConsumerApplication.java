@@ -10,7 +10,6 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 @EnableEurekaClient
 @EnableFeignClients
-@RibbonClient(name="SHOP-PRODUCT")
 public class ShopConsumerApplication {
 	
 	public static void main(String[] args) {

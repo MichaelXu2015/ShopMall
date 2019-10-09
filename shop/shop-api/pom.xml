@@ -17,6 +17,39 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-feign</artifactId>
 	</dependency>
+	
+	 <!-- Redis -->
+    <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+            <!-- SpringBoot 1.5的版本默认采用的连接池技术是jedis,SpringBoot 2.0以上版本默认连接池是lettuce, 因为此次是采用jedis，所以需要排除lettuce的jar -->
+            <!-- 因为当前的SpringBoot版本是1.5.9所以可以注释以下代码,SpringBoot2.0则需要解除以下注释的代码 -->
+            <!-- <exclusions>
+                <exclusion>
+                    <groupId>redis.clients</groupId>
+                    <artifactId>jedis</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>io.lettuce</groupId>
+                    <artifactId>lettuce-core</artifactId>
+                </exclusion>
+            </exclusions> -->
+      </dependency>
+
+        <!-- jedis客户端 -->
+      <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+      </dependency>
+
+        <!-- spring2.X集成redis所需common-pool2，使用jedis必须依赖它-->
+      <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-pool2</artifactId>
+            <version>2.5.0</version>
+      </dependency>
+	
+	
   </dependencies>
   
   <!--  此处引用的包,在其他model里能用,因为其他model引用了此shop-api工程

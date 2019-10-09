@@ -94,5 +94,6 @@
   	<module>shop-pay</module>
   	<module>shop-order</module>
   	<module>shop-consumer</module>
+  	<module>shop-hystrix-dashboard</module>
   </modules>
 </project>

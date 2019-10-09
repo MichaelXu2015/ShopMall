@@ -15,7 +15,7 @@ public class UserAddress {
 	private String province;
 	private String city;
 	private String area;
-	private String detailAddr;
+	private String detailsAddr;
 	private Date createTime;
 	private Date updateTime;
 	public String getUserId() {
@@ -60,11 +60,14 @@ public class UserAddress {
 	public void setArea(String area) {
 		this.area = area;
 	}
-	public String getDetailAddr() {
-		return detailAddr;
+	
+	
+	
+	public String getDetailsAddr() {
+		return detailsAddr;
 	}
-	public void setDetailAddr(String detailAddr) {
-		this.detailAddr = detailAddr;
+	public void setDetailsAddr(String detailsAddr) {
+		this.detailsAddr = detailsAddr;
 	}
 	public Date getCreateTime() {
 		return createTime;
@@ -81,8 +84,11 @@ public class UserAddress {
 	@Override
 	public String toString() {
 		return "UserAddress [userId=" + userId + ", userName=" + userName + ", fullName=" + fullName + ", phoneNumber="
-				+ phoneNumber + ", province=" + province + ", city=" + city + ", area=" + area + ", detailAddr="
-				+ detailAddr + ", createTime=" + createTime + ", updateTime=" + updateTime + "]";
+				+ phoneNumber + ", province=" + province + ", city=" + city + ", area=" + area + ", detailsAddr="
+				+ detailsAddr + ", createTime=" + createTime + ", updateTime=" + updateTime + "]";
 	}
+	
+	
+	
 	
 }

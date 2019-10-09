@@ -116,6 +116,12 @@ public class OrderMaster {
 				+ ", total=" + total + ", expressNo=" + expressNo + ", expressName=" + expressName + ", payType="
 				+ payType + ", status=" + status + ", createTime=" + createTime + ", updateTime=" + updateTime + "]";
 	}
+	public OrderMaster() {
+		super();
+	}
+	
+	
+	
 	
 	
 

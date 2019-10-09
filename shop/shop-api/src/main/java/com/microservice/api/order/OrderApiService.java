@@ -28,7 +28,7 @@ public interface OrderApiService {
 	 @PutMapping("/order/updateOrderMasterByOrderId")
 	 Integer updateOrderMasterByOrderId(@RequestBody OrderMaster orderMaster);
 	 
-	 @DeleteMapping("/order/deleteOrderMasterByOrderId")
+	 @DeleteMapping("/order/deleteOrderMasterByOrderId/{orderId}")
 	 Integer deleteOrderMasterByOrderId(@PathVariable("orderId") Integer orderId);
 	 
 	 @PostMapping("/order/insertOrderMaster")

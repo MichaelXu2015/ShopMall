@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.microservice.dao.UserAddressMapper">
+
+	
+	<insert id="insertUserAddress">
+		INSERT INTO user_address(user_id,user_name,
+		full_name,phone_number,province,city,area,details_addr,
+		create_time,update_time) VALUES(#{userId},#{userName},
+		#{fullName},#{phoneNumber},#{province},#{city},#{area},
+		#{detailsAddr},now(),now())
+	</insert>
+	
+	<select id="findAllUserAddressByUserName" resultType="com.microservice.entities.UserAddress">
+		SELECT * FROM user_address WHERE user_name=#{userName}
+	</select>
+	
+	<update id="updateUserAddress">
+		UPDATE user_address SET phone_number=#{phoneNumber},
+		province=#{province},city=#{city},area=#{area},details_addr=#{detailsAddr},
+		update_time=now() WHERE user_name=#{userName}
+	</update>
+	
+	<delete id="deleteUserAddressByUserName">
+		DELETE FROM user_address WHERE user_name=#{userName}
+	</delete>
+	
+
+		
+</mapper>	
+	

@@ -2,6 +2,7 @@ package com.microservice.controller.order;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.microservice.api.order.OrderApiService;
+import com.microservice.common.ServerResponse;
 import com.microservice.entities.OrderMaster;
 import com.microservice.service.OrderMasterService;
 
@@ -24,34 +26,62 @@ public class OrderController {
 	@Autowired
 	OrderMasterService orderMasterService;
 	
+	Logger logger = Logger.getLogger(getClass());
+	
 	@GetMapping("/findAllOrderMaster")
-	public List<OrderMaster> findAllOrderMaster() {
-		return orderMasterService.findAllOrderMaster();
+	public ServerResponse findAllOrderMaster() {
+		List<OrderMaster> orderMasterList = orderMasterService.findAllOrderMaster();
+		if(orderMasterList!=null && orderMasterList.size()!=0) {
+			return ServerResponse.createSuccess(orderMasterList);
+		}
+		return ServerResponse.createFail("没有订单");
 	}
 
 	@GetMapping("/findOrderMasterByOrderNo/{orderNo}")
-	public OrderMaster findOrderMasterByOrderNo(@PathVariable("orderNo") String orderNo) {
-		return orderMasterService.findOrderMasterByOrderNo(orderNo);
+	public ServerResponse findOrderMasterByOrderNo(@PathVariable("orderNo") String orderNo) {
+		OrderMaster orderMaster = orderMasterService.findOrderMasterByOrderNo(orderNo);
+		if(orderMaster!=null) {
+			return ServerResponse.createSuccess(orderMaster);
+		}
+		return ServerResponse.createFail("没有找到此 ["+orderNo+"] 订单");
 	}
 
 	@GetMapping("/findOrderMasterByUserId/{userId}")
-	public List<OrderMaster> findOrderMasterByUserId(@PathVariable("userId") String userId) {
-		return orderMasterService.findOrderMasterByUserId(userId);
+	public ServerResponse findOrderMasterByUserId(@PathVariable("userId") String userId) {
+		List<OrderMaster> orderMasterList = orderMasterService.findOrderMasterByUserId(userId);
+		if(orderMasterList!=null &&orderMasterList.size()!=0) {
+			return ServerResponse.createSuccess(orderMasterList);
+		}
+		return ServerResponse.createFail("没有找到此 ["+userId+"],用户id的订单");
 	}
 
 	@PutMapping("/updateOrderMasterByOrderId")
-	public Integer updateOrderMasterByOrderId(@RequestBody OrderMaster orderMaster) {
-		return orderMasterService.updateOrderMasterByOrderId(orderMaster);
+	public ServerResponse updateOrderMasterByOrderId(@RequestBody OrderMaster orderMaster) {
+		Integer result = orderMasterService.updateOrderMasterByOrderId(orderMaster);
+		if(result>0) {
+			return ServerResponse.createSuccess();
+		}
+		return ServerResponse.createFail();
 	}
 
 	@DeleteMapping("/deleteOrderMasterByOrderId/{orderId}")
-	public Integer deleteOrderMasterByOrderId(@PathVariable("orderId") Integer orderId) {
-		return orderMasterService.deleteOrderMasterByOrderId(orderId);
+	public ServerResponse deleteOrderMasterByOrderId(@PathVariable("orderId") Integer orderId) {
+		logger.info("orderId == "+orderId);
+		Integer result = orderMasterService.deleteOrderMasterByOrderId(orderId);
+		if(result>0) {
+			return ServerResponse.createSuccess();
+		}
+		return ServerResponse.createFail();
 	}
 
 	@PostMapping("/insertOrderMaster")
-	public Integer insertOrderMaster(@RequestBody OrderMaster orderMaster) {
-		return orderMasterService.insertOrderMaster(orderMaster);
+	public ServerResponse insertOrderMaster(@RequestBody OrderMaster orderMaster) {
+		Integer result = orderMasterService.insertOrderMaster(orderMaster);
+		if(result>0) {
+			return ServerResponse.createSuccess();
+		}
+		return ServerResponse.createFail();
 	}
+	
 
 }

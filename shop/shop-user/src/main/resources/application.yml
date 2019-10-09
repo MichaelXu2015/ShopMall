@@ -4,7 +4,26 @@ server:
 spring:
   application:
     name: shop-user #eureka显示的微服务名字
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: org.gjt.mm.mysql.Driver
+    #注意后面需要加上字符编码,不然插入的数据库的中文会变成???
+    url: jdbc:mysql://localhost:3306/shopmall?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+    username: root
+    password: 1234
+    dbcp2: 
+      min-idle: 5
+      initial-size: 5
+      max-total: 5
+      max-wait-millis: 200
+      
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml #mybatis配置文件路径
+  type-aliases-package: com.microservice.entities #别名所在的包
+  mapper-locations:
+  - classpath:mybatis/mapper/*.xml #mybatis映射文件路径
   
+    
 eureka:
   client:
     service-url: 
