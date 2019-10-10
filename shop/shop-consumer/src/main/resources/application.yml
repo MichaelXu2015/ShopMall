@@ -1,5 +1,9 @@
 server:
   port: 9001
+  
+spring:
+  application:
+    name: shop-consumer #eureka显示的微服务名字
 
 feign: 
   hystrix: 
@@ -7,6 +11,8 @@ feign:
         
 eureka:
   client: 
-    register-with-eureka: false
     service-url:
       defaultZone: http://localhost:7001/eureka/
+  instance: 
+    instance-id: shop-consumer9001
+    prefer-ip-address: true #显示ip

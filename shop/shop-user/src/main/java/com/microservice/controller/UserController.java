@@ -26,6 +26,7 @@ public class UserController {
 	
 	
 	@PostMapping("/insertUser")
+	@HystrixCommand
 	public Integer insertUser(@RequestBody User user) {
 		return userService.insertUser(user);
 	}
@@ -38,16 +39,19 @@ public class UserController {
 
 	
 	@GetMapping("/findUserByUserName/{userName}")
+	@HystrixCommand
 	public User findUserByUserName(@PathVariable("userName")String userName) {
 		return userService.findUserByUserName(userName);
 	}
 
 	@PutMapping("/updateUser")
+	@HystrixCommand
 	public Integer updateUser(@RequestBody User user) {
 		return userService.updateUser(user);
 	}
 
 	@DeleteMapping("/deleteUserByUserName/{userName}")
+	@HystrixCommand
 	public Integer deleteUserByUserName(@PathVariable("userName")String userName) {
 		return userService.deleteUserByUserName(userName);
 	}

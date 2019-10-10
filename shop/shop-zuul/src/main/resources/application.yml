@@ -1,0 +1,36 @@
+server:
+  port: 20000
+  
+spring:
+  application:
+    name: shop-zuul
+  
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka #向此服务中心注册
+  instance:
+    instance-id: shop-zuul20000
+    prefer-ip-address: true
+    
+zuul: 
+  ignored-services: shop-consumer #禁止通过微服务名直接访问
+  prefix: /shop  #访问地址加上统一的前缀
+  routes: 
+    user: #此名称可以随便写,最好以模块命名
+      serviceId: shop-consumer #真实的服务名，也可以写ip
+      path: /userapi/**   #外部访问的路径名称
+    order: 
+      serviceId: shop-order #订单的微服务名称
+      path: /orderapi/** #浏览器外部地址
+
+#将所有以/myuser/开头的请求映射到shop-consumer微服务
+#浏览器输入的地址 http://localhost:20000/hello/myuser/ + user/findAllUser(具体的方法基本的url)
+
+#http://localhost:20000/hello/myuser/user/findAllUser 映射到实际地址 http://localhost:8004/user/findAllUser
+
+#    user-service: 
+#      path: /user/**
+#      url: http://localhost:8004/
+    
+     

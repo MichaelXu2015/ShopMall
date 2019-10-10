@@ -95,5 +95,6 @@
   	<module>shop-order</module>
   	<module>shop-consumer</module>
   	<module>shop-hystrix-dashboard</module>
+  	<module>shop-zuul</module>
   </modules>
 </project>
