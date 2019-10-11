@@ -11,6 +11,10 @@
 		#{email},#{userStatus},now(),now())
 	</insert>
 	
+	<select id="login" resultType="com.microservice.entities.User">
+		SELECT * from user_info WHERE user_name=#{userName} AND password=#{password}
+	</select>
+	
 	<select id="findAllUser" resultType="com.microservice.entities.User">
 		SELECT * FROM user_info
 	</select>

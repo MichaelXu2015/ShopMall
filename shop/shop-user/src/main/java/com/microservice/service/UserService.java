@@ -8,6 +8,8 @@ public interface UserService {
 	
 	Integer insertUser(User user);
 
+	User login(User user);
+	
 	List<User> findAllUser();
 
 	User findUserByUserName(String userName);

@@ -21,6 +21,9 @@ public interface UserApiService {
 
 	@GetMapping("/user/findAllUser")
 	List<User> findAllUser() ;
+	
+	@PostMapping("/user/login")
+	User login(@RequestBody User user);
 
 	
 	@GetMapping("/user/findUserByUserName/{userName}")

@@ -25,6 +25,13 @@ public class UserController {
 	UserService userService;
 	
 	
+	
+	@PostMapping("/login")
+	public User login(@RequestBody User user) {
+		return userService.login(user);
+	}
+	
+	
 	@PostMapping("/insertUser")
 	@HystrixCommand
 	public Integer insertUser(@RequestBody User user) {

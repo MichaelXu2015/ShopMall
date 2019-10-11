@@ -2,6 +2,8 @@ package com.microservice.controller.user;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
+import org.apache.naming.java.javaURLContextFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.microservice.common.ServerResponse;
 import com.microservice.entities.User;
 import com.microservice.service.UserService;
+import com.microservice.token.JWTTokenUtil;
+import com.microservice.vo.UserVO;
 
 /**
  * 用户api接口
@@ -25,8 +29,31 @@ import com.microservice.service.UserService;
 @RequestMapping("/user")
 public class UserController {
 	
+	
+	Logger logger = Logger.getLogger(getClass());
+	
 	@Autowired
 	UserService userService;
+	
+	JWTTokenUtil jwtTokenUtil = JWTTokenUtil.defaultUtil();
+	
+	@SuppressWarnings("rawtypes")
+	@PostMapping("/login")
+	public ServerResponse login(@RequestBody User user) {
+		User mUser = userService.login(user);
+		if(mUser != null) {
+			//登录成功,将用户的基本信息和token返回
+			UserVO userVO = new UserVO();
+			userVO.setUserName(mUser.getUserName());
+			userVO.setPhoneNumber(mUser.getPhoneNumber());
+			userVO.setEmail(mUser.getEmail());
+			String token = jwtTokenUtil.createToken(mUser.getUserName());
+			logger.info("token ==== "+token);
+			userVO.setToken(token);
+			return ServerResponse.createSuccess("登录成功", userVO);
+		}
+		return ServerResponse.createFail("登录失败!");
+	}
 
 	@SuppressWarnings("rawtypes")
 	@PostMapping("/insertUser")

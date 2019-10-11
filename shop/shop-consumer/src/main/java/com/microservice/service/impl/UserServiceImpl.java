@@ -40,4 +40,9 @@ public class UserServiceImpl implements UserService{
 		return userApiService.deleteUserByUserName(userName);
 	}
 
+	@Override
+	public User login(User user) {
+		return userApiService.login(user);
+	}
+
 }

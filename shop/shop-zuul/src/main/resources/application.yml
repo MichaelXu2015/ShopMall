@@ -24,10 +24,10 @@ zuul:
       serviceId: shop-order #订单的微服务名称
       path: /orderapi/** #浏览器外部地址
 
-#将所有以/myuser/开头的请求映射到shop-consumer微服务
-#浏览器输入的地址 http://localhost:20000/hello/myuser/ + user/findAllUser(具体的方法基本的url)
+#将所有以/userapi/开头的请求映射到shop-consumer微服务
+#浏览器输入的地址 http://localhost:20000/shop/userapi/ + user/findAllUser(具体的方法基本的url)
 
-#http://localhost:20000/hello/myuser/user/findAllUser 映射到实际地址 http://localhost:8004/user/findAllUser
+#http://localhost:20000/shop/userapi/user/findAllUser 映射到实际地址 http://localhost:8004/user/findAllUser
 
 #    user-service: 
 #      path: /user/**

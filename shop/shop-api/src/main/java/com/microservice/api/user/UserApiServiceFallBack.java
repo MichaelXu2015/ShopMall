@@ -36,6 +36,12 @@ public class UserApiServiceFallBack implements FallbackFactory<UserApiService>{
 			public Integer deleteUserByUserName(String userName) {
 				return null;
 			}
+
+			@Override
+			public User login(User user) {
+				// TODO Auto-generated method stub
+				return null;
+			}
 		};
 	}
 

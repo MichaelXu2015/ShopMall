@@ -9,6 +9,8 @@ public interface UserService {
 	Integer insertUser(User user);
 
 	List<User> findAllUser();
+	
+	User login(User user);
 
 	User findUserByUserName(String userName);
 
