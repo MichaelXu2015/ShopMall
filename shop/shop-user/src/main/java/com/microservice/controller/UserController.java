@@ -32,6 +32,17 @@ public class UserController {
 	}
 	
 	
+	@GetMapping("/findUserByUserId/{userId}")
+	public User findUserByUserId(@PathVariable("userId")String userId) {
+		return userService.findUserByUserId(userId);
+	}
+	
+	@GetMapping("/findUserByPhone/{phoneNumber}")
+	public User findUserByPhone(@PathVariable("phoneNumber")String phoneNumber) {
+		return userService.findUserByPhone(phoneNumber);
+	}
+	
+	
 	@PostMapping("/insertUser")
 	@HystrixCommand
 	public Integer insertUser(@RequestBody User user) {

@@ -95,6 +95,8 @@ public class ServerResponse<T> implements Serializable {
 		return new ServerResponse<T>(ServerResponseCode.FAIL.getCode(),msg);
 	}
 	
+
+	
 	public static <T> ServerResponse<T> createFail(Integer status,String msg){
 		return new ServerResponse<T>(status,msg);
 	}

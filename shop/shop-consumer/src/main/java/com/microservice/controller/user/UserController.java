@@ -14,10 +14,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.microservice.common.ErrorMessage;
 import com.microservice.common.ServerResponse;
+import com.microservice.common.UserException;
 import com.microservice.entities.User;
 import com.microservice.service.UserService;
 import com.microservice.token.JWTTokenUtil;
+import com.microservice.util.UUIDUtil;
 import com.microservice.vo.UserVO;
 
 /**
@@ -58,11 +61,29 @@ public class UserController {
 	@SuppressWarnings("rawtypes")
 	@PostMapping("/insertUser")
 	public ServerResponse insertUser(@RequestBody User user) {
+		logger.info("-----------insertUser-----------");
+		userRegisterInfoCheck(user);
+		user.setUserId(UUIDUtil.getUUID());
 		Integer result = userService.insertUser(user);
 		if(result>0) {
 			return ServerResponse.createSuccess();
 		}
 		return ServerResponse.createFail("新增用户失败!");
+	}
+	
+	
+	public void userRegisterInfoCheck(User user) {
+		User user1  = userService.findUserByUserName(user.getUserName());
+		if(user1 != null) {
+			//说明用户名已被占用
+			throw new UserException(ErrorMessage.USER_NAME_EXIST);
+		}
+		User user2  = userService.findUserByPhone(user.getPhoneNumber());
+		if(user2!=null) {
+			//手机号码被占用
+			throw new UserException(ErrorMessage.USER_PHONE_EXIST);
+		}
+		
 	}
 
 	@SuppressWarnings("rawtypes")

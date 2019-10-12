@@ -13,6 +13,10 @@ public interface UserMapper {
 	
 	User login(User user);
 	
+	User findUserByUserId(String userId);
+	
+	User findUserByPhone(String phoneNumber);
+	
 	List<User> findAllUser();
 	
 	User findUserByUserName(String userName);

@@ -45,4 +45,14 @@ public class UserServiceImpl implements UserService{
 		return userApiService.login(user);
 	}
 
+	@Override
+	public User findUserByUserId(String userId) {
+		return userApiService.findUserByUserId(userId);
+	}
+
+	@Override
+	public User findUserByPhone(String phoneNumber) {
+		return userApiService.findUserByPhone(phoneNumber);
+	}
+
 }

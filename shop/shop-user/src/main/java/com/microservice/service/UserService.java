@@ -12,6 +12,10 @@ public interface UserService {
 	
 	List<User> findAllUser();
 
+	User findUserByUserId(String userId);
+	
+	User findUserByPhone(String phoneNumber);
+	
 	User findUserByUserName(String userName);
 
 	Integer updateUser(User user);

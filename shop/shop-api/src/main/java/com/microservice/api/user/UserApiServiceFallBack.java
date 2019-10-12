@@ -39,7 +39,16 @@ public class UserApiServiceFallBack implements FallbackFactory<UserApiService>{
 
 			@Override
 			public User login(User user) {
-				// TODO Auto-generated method stub
+				return null;
+			}
+
+			@Override
+			public User findUserByUserId(String userId) {
+				return null;
+			}
+
+			@Override
+			public User findUserByPhone(String phoneNumber) {
 				return null;
 			}
 		};

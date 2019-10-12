@@ -10,6 +10,10 @@ public interface UserService {
 
 	List<User> findAllUser();
 	
+	User findUserByUserId(String userId);
+	
+	User findUserByPhone(String phoneNumber);
+	
 	User login(User user);
 
 	User findUserByUserName(String userName);

@@ -11,6 +11,16 @@
 		#{email},#{userStatus},now(),now())
 	</insert>
 	
+	<!-- 通过userId查询用户 -->
+	<select id="findUserByUserId" resultType="com.microservice.entities.User">
+		SELECT * FROM user_info WHERE user_id=#{userId}
+	</select>
+	
+	<!-- 通过电话号码查询用户 -->
+	<select id="findUserByPhone" resultType="com.microservice.entities.User">
+		SELECT * FROM user_info WHERE phone_number =#{phoneNumber}
+	</select>
+	
 	<select id="login" resultType="com.microservice.entities.User">
 		SELECT * from user_info WHERE user_name=#{userName} AND password=#{password}
 	</select>

@@ -24,6 +24,12 @@ public interface UserApiService {
 	
 	@PostMapping("/user/login")
 	User login(@RequestBody User user);
+	
+	@GetMapping("/user/findUserByUserId/{userId}")
+	User findUserByUserId(@PathVariable("userId")String userId);
+	
+	@GetMapping("/user/findUserByPhone/{phoneNumber}")
+	User findUserByPhone(@PathVariable("phoneNumber")String phoneNumber);
 
 	
 	@GetMapping("/user/findUserByUserName/{userName}")
