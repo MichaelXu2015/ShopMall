@@ -2,6 +2,10 @@ package com.microservice.entities;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JacksonInject;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * 商品类别
  * @author qzy
@@ -13,8 +17,14 @@ public class ProductCategory {
 	private String categoryName;
 	private String categoryCode;
 	private Integer parentId;
+	
+	//使用Jackson配置过滤字段,使其在返回json字符串时,不显示该数据
+	@JsonIgnore
 	private Date createTime;
+	
+	@JsonIgnore
 	private Date updateTime;
+	
 	public Integer getCategoryId() {
 		return categoryId;
 	}

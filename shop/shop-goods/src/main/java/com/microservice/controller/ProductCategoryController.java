@@ -1,5 +1,6 @@
 package com.microservice.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.microservice.common.ServerResponse;
 import com.microservice.entities.ProductCategory;
 import com.microservice.service.ProductCategoryService;
+import com.microservice.vo.ChildProductCategoryVO;
+import com.microservice.vo.ParentProductCategoryVO;
+import com.microservice.vo.ProductCategoryVO;
 
 @RestController
 @RequestMapping("/productCategory")
@@ -25,33 +29,42 @@ public class ProductCategoryController {
 
 	
 	@PostMapping("/insertProductCategory")
-	public ServerResponse insertProductCategory(@RequestBody ProductCategory productCategory) {
-		if(productCategoryService.insertProductCategory(productCategory)>0) {
-			return ServerResponse.createSuccess();
-		}
-		return ServerResponse.createFail();
+	public Integer insertProductCategory(@RequestBody ProductCategory productCategory) {
+		return productCategoryService.insertProductCategory(productCategory);
+	
 	}
 	
 	@DeleteMapping("/deleteProductCategory/{categoryId}")
-	public ServerResponse deleteProductCategory(@PathVariable("categoryId") Integer categoryId) {
-		if(productCategoryService.deleteProductCategory(categoryId)>0) {
-			return ServerResponse.createSuccess();
-		}
-		return ServerResponse.createFail();
+	public Integer deleteProductCategory(@PathVariable("categoryId") Integer categoryId) {
+		return productCategoryService.deleteProductCategory(categoryId);
 	
 	}
 	
 	@PutMapping("/updateProductCategory")
-	public ServerResponse updateProductCategory(@RequestBody ProductCategory productCategory) {
-		if(productCategoryService.updateProductCategory(productCategory)>0) {
-			return ServerResponse.createSuccess();
-		}
-		return ServerResponse.createFail();
+	public Integer updateProductCategory(@RequestBody ProductCategory productCategory) {
+		return productCategoryService.updateProductCategory(productCategory);
 		
 	}
 	
 	@GetMapping("/findProductCategoryByParentId/{parentId}")
-	public ServerResponse findProductCategoryByParentId(@PathVariable("parentId") Integer parentId){
-		return ServerResponse.createSuccess(productCategoryService.findProductCategoryByParentId(parentId));
+	public List<ProductCategory> findProductCategoryByParentId(@PathVariable("parentId") Integer parentId){
+		return productCategoryService.findProductCategoryByParentId(parentId);
 	}
+	
+	@GetMapping("/findProductCategoryByCategoryId/{categoryId}")
+	public List<ProductCategory> findProductCategoryByCategoryId(@PathVariable("categoryId") Integer categoryId){
+		return productCategoryService.findProductCategoryByCategoryId(categoryId);
+	}
+	
+	/**
+	 * 查询产品信息
+	 * @return
+	 */
+	@GetMapping("/findProductCategoryInfo")
+	public ProductCategoryVO findProductCategoryInfo() {
+		System.out.println(" findProductCategoryInfo 22222222222222222");
+		return productCategoryService.findProductCategoryInfo();
+		
+	}
+	
 }

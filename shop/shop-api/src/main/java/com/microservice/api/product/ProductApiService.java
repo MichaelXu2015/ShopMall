@@ -19,7 +19,7 @@ import com.microservice.entities.Product;
  * @author qzy
  *
  */
-@FeignClient(value="SHOP-PRODUCT",fallbackFactory=ProductApiServiceFallBack.class)
+@FeignClient(value="SHOP-PRODUCT2",fallbackFactory=ProductApiServiceFallBack.class)
 public interface ProductApiService {
 	
 	@GetMapping("/product/getProduct/{productId}")

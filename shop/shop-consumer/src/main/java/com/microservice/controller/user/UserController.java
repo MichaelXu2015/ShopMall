@@ -43,6 +43,7 @@ public class UserController {
 	@SuppressWarnings("rawtypes")
 	@PostMapping("/login")
 	public ServerResponse login(@RequestBody User user) {
+		logger.info(" --- consumer login --- ");
 		User mUser = userService.login(user);
 		if(mUser != null) {
 			//登录成功,将用户的基本信息和token返回

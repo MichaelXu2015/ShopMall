@@ -17,6 +17,9 @@ public interface ProductCategoryMapper {
 	/*根据父类ID查询该父类ID下的产品*/
 	List<ProductCategory> findProductCategoryByParentId(Integer parentId);
 	
+	/*根据产品id查询*/
+	List<ProductCategory> findProductCategoryByCategoryId(Integer categoryId);
+	
 	Integer updateProductCategory(ProductCategory productCategory);
 	
 	

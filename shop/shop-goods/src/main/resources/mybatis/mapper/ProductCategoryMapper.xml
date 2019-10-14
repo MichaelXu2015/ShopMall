@@ -6,7 +6,11 @@
 
 	
 	<select id="findProductCategoryByParentId" resultType="ProductCategory">
-		SELECT * FROM product_category WHERE category_id IN (SELECT category_id FROM product_category WHERE parent_id = #{parentId})
+		SELECT * FROM product_category WHERE parent_id = #{parentId};
+	</select>
+	
+	<select id="findProductCategoryByCategoryId" resultType="ProductCategory">
+		SELECT * FROM product_category WHERE parent_id=#{categoryId}
 	</select>
 	
 	
