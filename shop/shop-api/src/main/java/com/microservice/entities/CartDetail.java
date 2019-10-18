@@ -10,16 +10,40 @@ import java.util.Date;
  */
 public class CartDetail {
 
-	private Integer cartId;
+	private String cartId;
+	//购物车详情ID
+	private String cartDetailId;
 	private String productId;
 	private String productName;
 	private BigDecimal productPrice;
+	private Integer quantity;
+	private BigDecimal subtotal;
 	private Date createTime;
 	private Date updateTime;
-	public Integer getCartId() {
+	
+	public String getCartDetailId() {
+		return cartDetailId;
+	}
+	public void setCartDetailId(String cartDetailId) {
+		this.cartDetailId = cartDetailId;
+	}
+	public Integer getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(Integer quantity) {
+		this.quantity = quantity;
+	}
+	public BigDecimal getSubtotal() {
+		return subtotal;
+	}
+	public void setSubtotal(BigDecimal subtotal) {
+		this.subtotal = subtotal;
+	}
+	
+	public String getCartId() {
 		return cartId;
 	}
-	public void setCartId(Integer cartId) {
+	public void setCartId(String cartId) {
 		this.cartId = cartId;
 	}
 	public String getProductId() {
@@ -54,9 +78,12 @@ public class CartDetail {
 	}
 	@Override
 	public String toString() {
-		return "CartDetail [cartId=" + cartId + ", productId=" + productId + ", productName=" + productName
-				+ ", productPrice=" + productPrice + ", createTime=" + createTime + ", updateTime=" + updateTime + "]";
+		return "CartDetail [cartId=" + cartId + ", cartDetailId=" + cartDetailId + ", productId=" + productId
+				+ ", productName=" + productName + ", productPrice=" + productPrice + ", quantity=" + quantity
+				+ ", subtotal=" + subtotal + ", createTime=" + createTime + ", updateTime=" + updateTime + "]";
 	}
+
+	
 	
 	
 	

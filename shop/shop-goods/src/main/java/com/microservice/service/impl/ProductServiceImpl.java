@@ -3,7 +3,7 @@ package com.microservice.service.impl;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import java.util.List;
 import com.microservice.dao.ProductMapper;
 import com.microservice.entities.Product;
 import com.microservice.service.ProductService;
@@ -36,9 +36,14 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public Integer deleteProductById(String productId) {
-		// TODO Auto-generated method stub
 		return productMapper.deleteProductById(productId);
 	}
+
+	@Override
+	public List<Product> findProductByCategoryCode(String categoryCode) {
+		return productMapper.findProductByCategoryCode(categoryCode);
+	}
+
 
 	
 

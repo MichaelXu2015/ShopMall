@@ -1,5 +1,7 @@
 package com.microservice.controller;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.apache.log4j.spi.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,6 +56,12 @@ public class ProductController {
 	@DeleteMapping("/deleteProductById/{productId}")
 	public Integer deleteProductById(@PathVariable("productId") String productId) {
 		return productService.deleteProductById(productId);
+	}
+	
+	
+	@GetMapping("/findProductByCategoryCode/{categoryCode}")
+	public List<Product> findProductByCategoryCode(@PathVariable("categoryCode")String categoryCode) {
+		return productService.findProductByCategoryCode(categoryCode);
 	}
 	
 	

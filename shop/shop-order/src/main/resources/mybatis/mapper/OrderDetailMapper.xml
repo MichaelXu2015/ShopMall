@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.microservice.dao.OrderDetailMapper">
+
+
+
+	<!-- 根据订单编号查询订单详情 -->
+	<select id="findOrderDetailByOrderNo" resultType="com.microservice.entities.OrderDetail">
+		SELECT * FROM order_detail WHERE order_no=#{orderNo}
+	</select>
+	
+		<!-- 增加订单详情 -->
+	<insert id="insertOrderDetail">
+		INSERT INTO order_detail(order_no,product_id,product_name,price,quantity,total,
+		create_time,update_time)VALUES(#{orderNo},#{productId},#{productName},
+		#{price},#{quantity},#{total},now(),now())
+	</insert>	
+	
+	<!-- 通过订单详情ID删除 -->
+	<delete id="deleteOrderDetailById">
+		DELETE FROM order_detail WHERE order_detail_id=#{orderDetailId}
+	</delete>
+	
+	<!-- 通过订单编号删除 -->
+	<delete id="deleteOrderDetailByOrderNo">
+		DELETE FROM order_detail WHERE order_no=#{orderNo}
+	</delete>
+
+</mapper>

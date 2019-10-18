@@ -24,15 +24,15 @@
 		SELECT * FROM order_master WHERE user_id=#{userId}
 	</select>
 	
-	<update id="updateOrderMasterByOrderId">
+	<update id="updateOrderMasterByOrderNo">
 		UPDATE order_master set phone_number=#{phoneNumber},
 		address=#{address}, express_no=#{expressNo},
-		express_name=#{expressName},pay_type={payType},
-		status=#{status},update_time=now() WHERE order_id=#{orderId}
+		express_name=#{expressName},pay_type=#{payType},
+		status=#{status},update_time=now() WHERE order_no=#{orderNo}
 	</update>
 	
-	<delete id="deleteOrderMasterByOrderId" parameterType="java.lang.Integer">
-		DELETE FROM order_master WHERE order_id=#{orderId}
+	<delete id="deleteOrderMasterByOrderNo">
+		DELETE FROM order_master WHERE order_no=#{orderNo}
 	</delete>
 
 	

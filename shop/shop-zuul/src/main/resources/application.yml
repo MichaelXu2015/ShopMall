@@ -23,6 +23,12 @@ zuul:
     product: 
       serviceId: shop-consumer #shop-product 必须通过消费者微服务才能访问商品服务提供者,不能直接访问商品服务提供者
       path: /productapi/**
+    order: 
+      service-id: shop-consumer
+      path: /orderapi/**
+    pay: 
+      service-id: shop-consumer
+      path: /payapi/**
 
 #将所有以/userapi/开头的请求映射到shop-consumer微服务
 #浏览器输入的地址 http://localhost:20000/shop/userapi/ + user/findAllUser(具体的方法基本的url)

@@ -51,6 +51,8 @@ public class UserController {
 			userVO.setUserName(mUser.getUserName());
 			userVO.setPhoneNumber(mUser.getPhoneNumber());
 			userVO.setEmail(mUser.getEmail());
+			userVO.setUserId(mUser.getUserId());
+			userVO.setFullName(mUser.getFullName());
 			String token = jwtTokenUtil.createToken(mUser.getUserName());
 			logger.info("token ==== "+token);
 			userVO.setToken(token);

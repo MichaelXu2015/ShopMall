@@ -21,6 +21,7 @@
 		SELECT * FROM user_info WHERE phone_number =#{phoneNumber}
 	</select>
 	
+	<!-- 登录 -->
 	<select id="login" resultType="com.microservice.entities.User">
 		SELECT * from user_info WHERE user_name=#{userName} AND password=#{password}
 	</select>

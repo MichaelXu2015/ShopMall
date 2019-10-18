@@ -28,6 +28,7 @@ public class OrderController {
 	
 	Logger logger = Logger.getLogger(getClass());
 	
+	@SuppressWarnings("rawtypes")
 	@GetMapping("/findAllOrderMaster")
 	public ServerResponse findAllOrderMaster() {
 		List<OrderMaster> orderMasterList = orderMasterService.findAllOrderMaster();
@@ -37,6 +38,7 @@ public class OrderController {
 		return ServerResponse.createFail("没有订单");
 	}
 
+	@SuppressWarnings("rawtypes")
 	@GetMapping("/findOrderMasterByOrderNo/{orderNo}")
 	public ServerResponse findOrderMasterByOrderNo(@PathVariable("orderNo") String orderNo) {
 		OrderMaster orderMaster = orderMasterService.findOrderMasterByOrderNo(orderNo);
@@ -46,6 +48,7 @@ public class OrderController {
 		return ServerResponse.createFail("没有找到此 ["+orderNo+"] 订单");
 	}
 
+	@SuppressWarnings("rawtypes")
 	@GetMapping("/findOrderMasterByUserId/{userId}")
 	public ServerResponse findOrderMasterByUserId(@PathVariable("userId") String userId) {
 		List<OrderMaster> orderMasterList = orderMasterService.findOrderMasterByUserId(userId);
@@ -55,6 +58,7 @@ public class OrderController {
 		return ServerResponse.createFail("没有找到此 ["+userId+"],用户id的订单");
 	}
 
+	@SuppressWarnings("rawtypes")
 	@PutMapping("/updateOrderMasterByOrderId")
 	public ServerResponse updateOrderMasterByOrderId(@RequestBody OrderMaster orderMaster) {
 		Integer result = orderMasterService.updateOrderMasterByOrderId(orderMaster);
@@ -64,6 +68,7 @@ public class OrderController {
 		return ServerResponse.createFail();
 	}
 
+	@SuppressWarnings("rawtypes")
 	@DeleteMapping("/deleteOrderMasterByOrderId/{orderId}")
 	public ServerResponse deleteOrderMasterByOrderId(@PathVariable("orderId") Integer orderId) {
 		logger.info("orderId == "+orderId);
@@ -74,6 +79,7 @@ public class OrderController {
 		return ServerResponse.createFail();
 	}
 
+	@SuppressWarnings("rawtypes")
 	@PostMapping("/insertOrderMaster")
 	public ServerResponse insertOrderMaster(@RequestBody OrderMaster orderMaster) {
 		Integer result = orderMasterService.insertOrderMaster(orderMaster);

@@ -16,12 +16,18 @@ spring:
       initial-size: 5
       max-total: 5
       max-wait-millis: 200
-      
-mybatis:
+
+#打印mybatis的sql执行语句
+logging:
+  level:
+    com.microservice.dao.*: debug    #这是你的mapper包路径。
+        
+mybatis: 
   config-location: classpath:mybatis/mybatis-config.xml #mybatis配置文件路径
   type-aliases-package: com.microservice.entities #别名所在的包
   mapper-locations:
   - classpath:mybatis/mapper/*.xml #mybatis映射文件路径
+
   
     
 eureka:

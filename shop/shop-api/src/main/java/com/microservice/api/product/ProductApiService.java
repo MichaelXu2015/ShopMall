@@ -1,5 +1,7 @@
 package com.microservice.api.product;
 
+import java.util.List;
+
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,7 +27,6 @@ public interface ProductApiService {
 	@GetMapping("/product/getProduct/{productId}")
 	Product findProductById(@PathVariable("productId") String productId);
 	
-	
 	@PostMapping("/product/insertProduct")
 	Integer insertProduct(@RequestBody Product product);
 	
@@ -34,4 +35,7 @@ public interface ProductApiService {
 	
 	@DeleteMapping("/product/deleteProductById/{productId}")
 	Integer deleteProductById(@PathVariable("productId") String productId);
+	
+	@GetMapping("/product/findProductByCategoryCode/{categoryCode}")
+	List<Product> findProductByCategoryCode(@PathVariable("categoryCode")String categoryCode);
 }

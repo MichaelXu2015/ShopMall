@@ -20,8 +20,8 @@ import com.microservice.service.OrderMasterService;
 public class OrderMasterController {
 
 	
-	@Autowired
-	OrderMasterService masterService;
+	 @Autowired
+	 OrderMasterService masterService;
 	
 	
 	 @GetMapping("/findAllOrderMaster")
@@ -35,19 +35,19 @@ public class OrderMasterController {
 	 }
 	 
 	 @GetMapping("/findOrderMasterByUserId/{userId}")
-	 public List<OrderMaster> findOrderMasterByUserId(String userId){
+	 public List<OrderMaster> findOrderMasterByUserId(@PathVariable("userId")String userId){
 		 return masterService.findOrderMasterByUserId(userId);
 	 }
 	 
-	 @PutMapping("/updateOrderMasterByOrderId")
-	 public Integer updateOrderMasterByOrderId(@RequestBody OrderMaster orderMaster) {
-		return masterService.updateOrderMasterByOrderId(orderMaster);
+	 @PutMapping("/updateOrderMasterByOrderNo")
+	 public Integer updateOrderMasterByOrderNo(@RequestBody OrderMaster orderMaster) {
+		return masterService.updateOrderMasterByOrderNo(orderMaster);
 	 }
 	 
 	 
-	 @DeleteMapping("/deleteOrderMasterByOrderId/{orderId}")
-	 public Integer deleteOrderMasterByOrderId(@PathVariable("orderId")Integer orderId) {
-		return masterService.deleteOrderMasterByOrderId(orderId);
+	 @DeleteMapping("/deleteOrderMasterByOrderNo/{orderNo}")
+	 public Integer deleteOrderMasterByOrderNo(@PathVariable("orderNo")String orderNo) {
+		return masterService.deleteOrderMasterByOrderNo(orderNo);
 		 
 	 }
 	 

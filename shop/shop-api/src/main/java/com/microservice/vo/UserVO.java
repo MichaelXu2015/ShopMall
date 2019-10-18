@@ -3,14 +3,34 @@ package com.microservice.vo;
 public class UserVO {
 	
 	private String userName;
+	private String userId;
+	private String fullName;
 	private String email;
 	private String phoneNumber;
 	private String token;
+	
+	
+	
 	public String getUserName() {
 		return userName;
 	}
 	public void setUserName(String userName) {
 		this.userName = userName;
+	}
+	
+	
+	
+	public String getFullName() {
+		return fullName;
+	}
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
+	}
+	public String getUserId() {
+		return userId;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 	public String getEmail() {
 		return email;
@@ -32,10 +52,14 @@ public class UserVO {
 	}
 	@Override
 	public String toString() {
-		return "UserVO [userName=" + userName + ", email=" + email + ", phoneNumber=" + phoneNumber + ", token=" + token
-				+ "]";
+		return "UserVO [userName=" + userName + ", userId=" + userId + ", fullName=" + fullName + ", email=" + email
+				+ ", phoneNumber=" + phoneNumber + ", token=" + token + "]";
 	}
 	
+	
+	
+
+
 	
 
 }

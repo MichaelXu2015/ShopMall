@@ -9,6 +9,7 @@ import com.microservice.entities.UserAccount;
 
 import feign.hystrix.FallbackFactory;
 
+@SuppressWarnings("unused")
 @Component
 public class UserAccountApiServiceFallBack implements FallbackFactory<UserAccountApiService>{
 
@@ -33,6 +34,11 @@ public class UserAccountApiServiceFallBack implements FallbackFactory<UserAccoun
 			
 			@Override
 			public Integer deleteUserAccount(String userName) {
+				return null;
+			}
+
+			@Override
+			public UserAccount findUAByUnamePsd(String userName, String payPass) {
 				return null;
 			}
 		};

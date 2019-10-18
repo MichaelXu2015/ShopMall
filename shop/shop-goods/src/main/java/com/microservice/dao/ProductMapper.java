@@ -1,5 +1,7 @@
 package com.microservice.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 
 import com.microservice.entities.Product;
@@ -14,5 +16,7 @@ public interface ProductMapper {
 	Integer updateProduct(Product product);
 	
 	Integer deleteProductById(String productId);
+	
+	List<Product> findProductByCategoryCode(String categoryCode);
 	
 }

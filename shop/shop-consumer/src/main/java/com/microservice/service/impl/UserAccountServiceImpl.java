@@ -33,4 +33,9 @@ public class UserAccountServiceImpl implements UserAccountService{
 		return userAccountApiService.updateUserAccountByUserName(userAccount);
 	}
 
+	@Override
+	public UserAccount findUserAccountByUserNameAndPayPassword(String userName, String PayPassword) {
+		return userAccountApiService.findUAByUnamePsd(userName, PayPassword);
+	}
+
 }

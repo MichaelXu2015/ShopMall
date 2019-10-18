@@ -14,8 +14,7 @@ public class OrderMasterServiceImpl implements OrderMasterService {
 
 	@Autowired
 	OrderMasterMapper orderMasterMapper;
-	
-	
+
 	@Override
 	public List<OrderMaster> findAllOrderMaster() {
 		return orderMasterMapper.findAllOrderMaster();
@@ -32,18 +31,21 @@ public class OrderMasterServiceImpl implements OrderMasterService {
 	}
 
 	@Override
-	public Integer updateOrderMasterByOrderId(OrderMaster orderMaster) {
-		return orderMasterMapper.updateOrderMasterByOrderId(orderMaster);
+	public Integer updateOrderMasterByOrderNo(OrderMaster orderMaster) {
+		return orderMasterMapper.updateOrderMasterByOrderNo(orderMaster);
 	}
 
 	@Override
-	public Integer deleteOrderMasterByOrderId(Integer orderId) {
-		return orderMasterMapper.deleteOrderMasterByOrderId(orderId);
+	public Integer deleteOrderMasterByOrderNo(String orderNo) {
+		return orderMasterMapper.deleteOrderMasterByOrderNo(orderNo);
 	}
 
 	@Override
 	public Integer insertOrderMaster(OrderMaster orderMaster) {
 		return orderMasterMapper.insertOrderMaster(orderMaster);
 	}
+	
+	
+	
 
 }

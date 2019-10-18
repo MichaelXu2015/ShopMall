@@ -1,5 +1,7 @@
 package com.microservice.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,6 +33,11 @@ public class ProductServiceImpl implements ProductService{
 	@Override
 	public Integer deleteProductById(String productId) {
 		return productApiService.deleteProductById(productId);
+	}
+
+	@Override
+	public List<Product> findProductByCategoryCode(String categoryCode) {
+		return productApiService.findProductByCategoryCode(categoryCode);
 	}
 	
 	

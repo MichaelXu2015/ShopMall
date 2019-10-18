@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.microservice.dao.CartMapper">
+
+
+
+	<!-- 根据userId查询购物车 -->
+	<select id="findCartByUserId" resultType="com.microservice.entities.Cart">
+		SELECT * FROM cart
+	</select>
+	
+	
+	<!-- 添加购物车  -->
+	<insert id="insertCart" parameterType="com.microservice.entities.Cart">
+		INSERT INTO cart(cart_id,user_id,full_name,total_price,cretae_time,update_time)
+		VALUES(#{cart_id},#{userId},#{fullName},#{totalPrice},now(),now())
+	</insert>
+	
+	<!-- 更新购物车里的金额 -->
+	<update id="updateCartTotalPriceByUserId">
+		UPDATE cart SET total_price=total_price+#{price} WHERE user_id=#{userId};
+	</update>
+	
+	
+	
+	
+
+</mapper>

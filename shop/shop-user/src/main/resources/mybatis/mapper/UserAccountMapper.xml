@@ -9,8 +9,13 @@
 		VALUES(#{userId},#{userName},#{fullName},#{balance},#{integral},now(),now())
 	</insert>
 	
+	
+	<select id="findUserAccountByUserNameAndPayPassword" resultType="com.microservice.entities.UserAccount">
+		SELECT * FROM user_account WHERE user_name=#{userName} AND pay_password=#{payPassword}	
+	</select>
+	
 	<update id="updateUserAccountByUserName">
-		UPDATE user_account SET balance=#{balance},integral=#{integral},update_time=#{updateTime}
+		UPDATE user_account SET balance=#{balance},integral=#{integral},update_time=now()
 		WHERE user_name=#{userName}
 	</update>
 	

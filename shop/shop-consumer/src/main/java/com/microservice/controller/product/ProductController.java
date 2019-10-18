@@ -1,5 +1,7 @@
 package com.microservice.controller.product;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -32,6 +34,7 @@ public class ProductController {
 	  
 	  Logger logger = Logger.getLogger(getClass());
 	 
+	  @SuppressWarnings("rawtypes")
 	  @GetMapping("/getProduct/{productId}")
 	  public ServerResponse findProductById(@PathVariable("productId") String productId) {
 		  	Product product = productService.findProductById(productId);
@@ -42,6 +45,7 @@ public class ProductController {
 			return ServerResponse.createFail();
 	  }
 	  
+	  @SuppressWarnings("rawtypes")
 	  @PostMapping("/insertProduct")
 	  public ServerResponse insertProduct(@RequestBody Product product) {
 		  Integer  result = productService.insertProduct(product);
@@ -52,6 +56,7 @@ public class ProductController {
 	  }
 	  
 	  
+	  @SuppressWarnings("rawtypes")
 	  @PutMapping("/updateProduct")
 	  public ServerResponse updateProduct(@RequestBody Product product) {
 		  Integer  result =  productService.updateProduct(product);
@@ -62,6 +67,7 @@ public class ProductController {
 	  }
 	  
 	  
+	  @SuppressWarnings("rawtypes")
 	  @DeleteMapping("/deleteProductById/{productId}")
 	  public ServerResponse deleteProductById(@PathVariable("productId") String productId) {
 		  Integer  result =  productService.deleteProductById(productId);
@@ -70,6 +76,17 @@ public class ProductController {
 		  }
 		  return ServerResponse.createFail();
 	  }
+	  
+	  
+	   @SuppressWarnings("rawtypes")
+	   @GetMapping("/findProductByCategoryCode/{categoryCode}")
+		public ServerResponse findProductByCategoryCode(@PathVariable("categoryCode")String categoryCode) {
+			List<Product> list = productService.findProductByCategoryCode(categoryCode);
+			if(list!=null && list.size()!=0) {
+				return ServerResponse.createSuccess(list);
+			}
+		   return ServerResponse.createFail("查询商品信息失败");
+		}
 	
 	
 

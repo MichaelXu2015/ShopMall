@@ -1,5 +1,7 @@
 package com.microservice.api.product;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
@@ -26,13 +28,11 @@ public class ProductApiServiceFallBack implements FallbackFactory<ProductApiServ
 			
 			@Override
 			public Integer updateProduct(Product product) {
-				// TODO Auto-generated method stub
 				return null;
 			}
 			
 			@Override
 			public Integer insertProduct(Product product) {
-				// TODO Auto-generated method stub
 				return null;
 			}
 			
@@ -47,7 +47,11 @@ public class ProductApiServiceFallBack implements FallbackFactory<ProductApiServ
 			
 			@Override
 			public Integer deleteProductById(String productId) {
-				// TODO Auto-generated method stub
+				return null;
+			}
+
+			@Override
+			public List<Product> findProductByCategoryCode(String categoryCode) {
 				return null;
 			}
 		};

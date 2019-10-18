@@ -12,9 +12,9 @@ public interface OrderMasterService {
 	 
 	 List<OrderMaster> findOrderMasterByUserId(String userId);
 	 
-	 Integer updateOrderMasterByOrderId(OrderMaster orderMaster);
+	 Integer updateOrderMasterByOrderNo(OrderMaster orderMaster);
 	 
-	 Integer deleteOrderMasterByOrderId(Integer orderId);
+	 Integer deleteOrderMasterByOrderNo(String orderNo);
 	 
 	 Integer insertOrderMaster(OrderMaster orderMaster);
 }

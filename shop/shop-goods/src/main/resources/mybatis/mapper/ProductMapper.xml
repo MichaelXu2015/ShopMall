@@ -4,6 +4,11 @@
 <mapper namespace="com.microservice.dao.ProductMapper">
 
 
+
+	<!-- 根据categoryCode查具体商品 -->
+	<select id="findProductByCategoryCode" resultType="Product">
+		SELECT product_id,product_name,category_code,price,descript,product_img,stock FROM product_info WHERE category_code=#{categoryCode}
+	</select>
 	
 	<select id="findProductById" resultType="Product">
 		SELECT * FROM product_info WHERE product_id = #{productId}

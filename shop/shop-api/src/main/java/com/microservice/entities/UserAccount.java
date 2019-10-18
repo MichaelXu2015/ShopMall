@@ -15,8 +15,18 @@ public class UserAccount {
 	private String fullName;
 	private BigDecimal balance;
 	private Integer integral;//积分
+	private String payPassword;//支付密码
 	private Date createTime;
 	private Date updateTime;
+	
+	
+	
+	public String getPayPassword() {
+		return payPassword;
+	}
+	public void setPayPassword(String payPassword) {
+		this.payPassword = payPassword;
+	}
 	public String getUserId() {
 		return userId;
 	}
@@ -62,9 +72,10 @@ public class UserAccount {
 	@Override
 	public String toString() {
 		return "UserAccount [userId=" + userId + ", userName=" + userName + ", fullName=" + fullName + ", balance="
-				+ balance + ", integral=" + integral + ", createTime=" + createTime + ", updateTime=" + updateTime
-				+ "]";
+				+ balance + ", integral=" + integral + ", payPassword=" + payPassword + ", createTime=" + createTime
+				+ ", updateTime=" + updateTime + "]";
 	}
+
 	
 	
 	

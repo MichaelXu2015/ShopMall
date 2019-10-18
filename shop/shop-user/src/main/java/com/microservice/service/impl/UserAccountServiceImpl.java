@@ -1,10 +1,7 @@
 package com.microservice.service.impl;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.microservice.dao.UserAccountMapper;
 import com.microservice.entities.UserAccount;
 import com.microservice.service.UserAccountService;
@@ -12,6 +9,7 @@ import com.microservice.service.UserAccountService;
 @Service
 public class UserAccountServiceImpl implements UserAccountService{
 	
+	@Autowired
 	UserAccountMapper userAccountMapper;
 
 	@Override
@@ -33,6 +31,13 @@ public class UserAccountServiceImpl implements UserAccountService{
 	public Integer updateUserAccountByUserName(UserAccount userAccount) {
 		return userAccountMapper.updateUserAccountByUserName(userAccount);
 	}
+
+	@Override
+	public UserAccount findUserAccountByUserNameAndPayPassword(String userName, String payPassword) {
+		return userAccountMapper.findUserAccountByUserNameAndPayPassword(userName, payPassword);
+	}
+
+	
 
 	
 	
