@@ -2,6 +2,7 @@ package com.microservice.service.impl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.microservice.api.order.OrderDetailApiService;
@@ -11,6 +12,7 @@ import com.microservice.service.OrderDetailService;
 @Service
 public class OrderDetailServiceImpl implements OrderDetailService{
 	
+	@Autowired
 	OrderDetailApiService orderDetailApiService;
 
 	@Override

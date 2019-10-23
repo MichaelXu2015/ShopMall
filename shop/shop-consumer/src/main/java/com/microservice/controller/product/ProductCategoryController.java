@@ -13,9 +13,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.google.gson.Gson;
 import com.microservice.common.ServerResponse;
 import com.microservice.entities.ProductCategory;
 import com.microservice.service.ProductCategoryService;
+import com.microservice.util.RedisUtil;
 import com.microservice.vo.ProductCategoryVO;
 
 @RestController
@@ -26,6 +28,13 @@ public class ProductCategoryController {
 	
 	@Autowired
 	ProductCategoryService productCategoryService;
+	
+	@Autowired
+	RedisUtil redisUtil;
+	
+	String productInfo = "productInfo";
+	
+	Gson gson;
 	
 	
 	@SuppressWarnings("rawtypes")
@@ -83,12 +92,24 @@ public class ProductCategoryController {
 	@SuppressWarnings("rawtypes")
 	@GetMapping("/findProductCategoryInfo")
 	public ServerResponse  findProductCategoryInfo() {
-		logger.info(" --- consumer findProductCategoryInfo --- ");
-		ProductCategoryVO productCategoryVO = productCategoryService.findProductCategoryInfo();
-		if(productCategoryVO!=null) {
-			logger.info(" productCategoryVO =  "+productCategoryVO.toString());
+		logger.info(" --- consumer findProductCategoryInfo --- redis ping =  "+redisUtil.ping());
+		gson = new Gson();
+		String info = redisUtil.get(productInfo);
+		if(info==null || info.equals("")) {
+			ProductCategoryVO productCategoryVO = productCategoryService.findProductCategoryInfo();
+			if(productCategoryVO!=null) {
+				logger.info(" productCategoryVO =  "+productCategoryVO.toString());
+				String productInfoJson =  gson.toJson(productCategoryVO);
+				redisUtil.set(productInfo, productInfoJson);
+				return ServerResponse.createSuccess(productCategoryVO);
+			}
+		}else {
+			String info2 = redisUtil.get(productInfo);
+			logger.info(" 从redis中取出商品信息 : "+info2);
+			ProductCategoryVO productCategoryVO  = gson.fromJson(info2, ProductCategoryVO.class);
 			return ServerResponse.createSuccess(productCategoryVO);
 		}
+		
 		return ServerResponse.createFail("没有产品类别相关信息");
 	}
 

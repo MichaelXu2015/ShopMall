@@ -53,4 +53,9 @@ public class UserAccountController {
 		logger.info("------------userName == "+userName+" -----------password == "+payPass);
 		return userAccountService.findUserAccountByUserNameAndPayPassword(userName, payPass);
 	}
+	
+	@GetMapping("/updateUADeduction/{userName}/{money}")
+	public Integer updateUADeduction(@PathVariable("userName")String userName, @PathVariable("money")Float money) {
+		return userAccountService.updateUADeduction(userName, money);
+	}
 }

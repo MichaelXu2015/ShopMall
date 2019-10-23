@@ -61,7 +61,17 @@ public class ProductController {
 	
 	@GetMapping("/findProductByCategoryCode/{categoryCode}")
 	public List<Product> findProductByCategoryCode(@PathVariable("categoryCode")String categoryCode) {
-		return productService.findProductByCategoryCode(categoryCode);
+		List<Product> list = productService.findProductByCategoryCode(categoryCode);
+		logger.info("=================ProductModule================= list : "+list.toString());
+		return list;
+	}
+	
+	
+	@GetMapping("/updateProductStock/{productId}/{stock}")
+	public Integer updateProductStock(@PathVariable("productId") String productId, @PathVariable("stock") Integer stock) {
+		Integer result = productService.updateProductStock(productId,stock);
+		logger.info("result :"+result);
+		return result;
 	}
 	
 	

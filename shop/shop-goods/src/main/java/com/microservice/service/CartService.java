@@ -1,7 +1,5 @@
 package com.microservice.service;
 
-import org.apache.ibatis.annotations.Param;
-
 import com.microservice.entities.Cart;
 
 public interface CartService {
@@ -10,6 +8,6 @@ public interface CartService {
 		
 		public Integer insertCart(Cart cart);
 		
-		public Integer updateCartTotalPriceByUserId(String userId, Float price);
+		public Integer updateCartTotalPriceByCartId(String cartId, Float price);
 
 }

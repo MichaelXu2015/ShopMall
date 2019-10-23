@@ -16,4 +16,5 @@ public interface UserAccountService {
 	
 	UserAccount findUserAccountByUserNameAndPayPassword(String userName,String PayPassword);
 
+	Integer updateUADeduction(String userName,Float money);
 }

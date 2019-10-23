@@ -6,7 +6,7 @@
 
 
 	<!-- 根据categoryCode查具体商品 -->
-	<select id="findProductByCategoryCode" resultType="Product">
+	<select id="findProductByCategoryCode" resultType="com.microservice.entities.Product">
 		SELECT product_id,product_name,category_code,price,descript,product_img,stock FROM product_info WHERE category_code=#{categoryCode}
 	</select>
 	
@@ -32,6 +32,11 @@
 		stock=#{stock},category_id=#{categoryId},category_name=#{categoryName},
 		brand_id=#{brandId},brand_name=#{brandName},update_time=now()
 		WHERE product_id=#{productId}
+	</update>
+	
+	
+	<update id="updateProductStock">
+		UPDATE product_info SET stock=stock-#{stock} WHERE product_id=#{productId}
 	</update>
 	
 	

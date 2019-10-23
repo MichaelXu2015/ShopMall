@@ -41,6 +41,12 @@ public class UserAccountApiServiceFallBack implements FallbackFactory<UserAccoun
 			public UserAccount findUAByUnamePsd(String userName, String payPass) {
 				return null;
 			}
+
+			@Override
+			public Integer updateUADeduction(String userName, Float money) {
+				// TODO Auto-generated method stub
+				return null;
+			}
 		};
 	}
 

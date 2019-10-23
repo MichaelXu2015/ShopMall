@@ -15,5 +15,7 @@ public interface ProductService {
 	Integer deleteProductById(String productId);
 	
 	List<Product> findProductByCategoryCode(String categoryCode);
+	
+	Integer updateProductStock(String productId,Integer stock);
 
 }

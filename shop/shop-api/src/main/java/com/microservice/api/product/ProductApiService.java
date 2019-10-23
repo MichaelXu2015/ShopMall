@@ -21,7 +21,7 @@ import com.microservice.entities.Product;
  * @author qzy
  *
  */
-@FeignClient(value="SHOP-PRODUCT2",fallbackFactory=ProductApiServiceFallBack.class)
+@FeignClient(value="SHOP-PRODUCT",fallbackFactory=ProductApiServiceFallBack.class)
 public interface ProductApiService {
 	
 	@GetMapping("/product/getProduct/{productId}")
@@ -38,4 +38,8 @@ public interface ProductApiService {
 	
 	@GetMapping("/product/findProductByCategoryCode/{categoryCode}")
 	List<Product> findProductByCategoryCode(@PathVariable("categoryCode")String categoryCode);
+
+	@GetMapping("/product/updateProductStock/{productId}/{stock}")
+	public Integer updateProductStock(@PathVariable("productId") String productId, @PathVariable("stock") Integer stock);
+
 }

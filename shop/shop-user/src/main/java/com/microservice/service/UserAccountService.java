@@ -3,6 +3,7 @@ package com.microservice.service;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.microservice.entities.UserAccount;
 
@@ -17,4 +18,6 @@ public interface UserAccountService {
 	UserAccount findUserAccountByUserName(String userName);
 	
 	Integer updateUserAccountByUserName(UserAccount userAccount);
+	
+	Integer updateUADeduction(String userName,Float money);
 }

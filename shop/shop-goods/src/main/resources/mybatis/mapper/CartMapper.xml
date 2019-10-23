@@ -7,23 +7,20 @@
 
 	<!-- 根据userId查询购物车 -->
 	<select id="findCartByUserId" resultType="com.microservice.entities.Cart">
-		SELECT * FROM cart
+		SELECT * FROM cart WHERE cart_id=#{cartId}
 	</select>
 	
 	
 	<!-- 添加购物车  -->
 	<insert id="insertCart" parameterType="com.microservice.entities.Cart">
-		INSERT INTO cart(cart_id,user_id,full_name,total_price,cretae_time,update_time)
-		VALUES(#{cart_id},#{userId},#{fullName},#{totalPrice},now(),now())
+		INSERT INTO cart(cart_id,user_name,full_name,total_price,create_time,update_time)
+		VALUES(#{cartId},#{userName},#{fullName},#{totalPrice},now(),now())
 	</insert>
 	
 	<!-- 更新购物车里的金额 -->
 	<update id="updateCartTotalPriceByUserId">
-		UPDATE cart SET total_price=total_price+#{price} WHERE user_id=#{userId};
+		UPDATE cart SET total_price=total_price+#{price} WHERE cart_id=#{cartId};
 	</update>
-	
-	
-	
 	
 
 </mapper>

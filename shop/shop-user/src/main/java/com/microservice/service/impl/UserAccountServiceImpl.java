@@ -37,6 +37,11 @@ public class UserAccountServiceImpl implements UserAccountService{
 		return userAccountMapper.findUserAccountByUserNameAndPayPassword(userName, payPassword);
 	}
 
+	@Override
+	public Integer updateUADeduction(String userName, Float money) {
+		return userAccountMapper.updateUADeduction(userName, money);
+	}
+
 	
 
 	

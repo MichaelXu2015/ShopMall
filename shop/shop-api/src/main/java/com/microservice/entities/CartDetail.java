@@ -3,6 +3,8 @@ package com.microservice.entities;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * 购物车详情
  * @author qzy
@@ -18,7 +20,11 @@ public class CartDetail {
 	private BigDecimal productPrice;
 	private Integer quantity;
 	private BigDecimal subtotal;
+	
+	@JsonIgnore
 	private Date createTime;
+	
+	@JsonIgnore
 	private Date updateTime;
 	
 	public String getCartDetailId() {

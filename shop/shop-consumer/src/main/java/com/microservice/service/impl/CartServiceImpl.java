@@ -26,8 +26,8 @@ public class CartServiceImpl implements CartService {
 	}
 
 	@Override
-	public Integer updateCartTotalPriceByUserId(String userId, Float price) {
-		return cartApiService.updateCartTotalPriceByUserId(userId, price);
+	public Integer updateCartTotalPriceByCartId(String cartId, Float price) {
+		return cartApiService.updateCartTotalPriceByCartId(cartId, price);
 	}
 
 }

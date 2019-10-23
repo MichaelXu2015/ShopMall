@@ -11,23 +11,22 @@ import java.util.Date;
 public class Cart {
 	
 	private String cartId;
-	private String userId;
+	private String userName;
 	private String fullName;
 	private BigDecimal totalPrice;
 	private Date createTime;
 	private Date updateTime;
-	
 	public String getCartId() {
 		return cartId;
 	}
 	public void setCartId(String cartId) {
 		this.cartId = cartId;
 	}
-	public String getUserId() {
-		return userId;
+	public String getUserName() {
+		return userName;
 	}
-	public void setUserId(String userId) {
-		this.userId = userId;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 	public String getFullName() {
 		return fullName;
@@ -41,7 +40,6 @@ public class Cart {
 	public void setTotalPrice(BigDecimal totalPrice) {
 		this.totalPrice = totalPrice;
 	}
-
 	public Date getCreateTime() {
 		return createTime;
 	}
@@ -56,10 +54,10 @@ public class Cart {
 	}
 	@Override
 	public String toString() {
-		return "Cart [cartId=" + cartId + ", userId=" + userId + ", fullName=" + fullName + ", totalPrice=" + totalPrice
-				+ ", createTime=" + createTime + ", updateTime=" + updateTime + "]";
+		return "Cart [cartId=" + cartId + ", userName=" + userName + ", fullName=" + fullName + ", totalPrice="
+				+ totalPrice + ", createTime=" + createTime + ", updateTime=" + updateTime + "]";
 	}
-
+	
 	
 	
 	

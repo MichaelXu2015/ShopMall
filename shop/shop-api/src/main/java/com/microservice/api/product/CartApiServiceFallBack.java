@@ -14,17 +14,20 @@ public class CartApiServiceFallBack implements FallbackFactory<CartApiService> {
 		return new CartApiService() {
 			
 			@Override
-			public Integer updateCartTotalPriceByUserId(String userId, Float price) {
+			public Integer updateCartTotalPriceByCartId(String cartId, Float price) {
+				// TODO Auto-generated method stub
 				return null;
 			}
 			
 			@Override
 			public Integer insertCart(Cart cart) {
+				// TODO Auto-generated method stub
 				return null;
 			}
 			
 			@Override
 			public Cart findCartByUserId(String userId) {
+				// TODO Auto-generated method stub
 				return null;
 			}
 		};

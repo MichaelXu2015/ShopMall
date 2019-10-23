@@ -22,8 +22,7 @@ public class ShopPayController {
 	@Autowired
 	ShopPayService shopPayService;
 	
-	@Autowired
-	RedisUtil redisUtil;
+
 	
 	@PostMapping("/insertShopPay")
 	public Integer insertShopPay(@RequestBody PayOrder payOrder) {
@@ -46,14 +45,7 @@ public class ShopPayController {
 	}
 	
 	
-	//redis 测试通过
-	@GetMapping("/testRedis")
-	public String testRedis() {
-		if(redisUtil!=null) {
-			return redisUtil.ping();
-		}
-		return "redisUtil is null";		
-	}
+
 	
 	
 

@@ -8,6 +8,6 @@ public interface CartService {
 		
 	 Integer insertCart(Cart cart);
 		
-	 Integer updateCartTotalPriceByUserId(String userId, Float price);
+	 Integer updateCartTotalPriceByCartId(String cartId, Float price);
 
 }

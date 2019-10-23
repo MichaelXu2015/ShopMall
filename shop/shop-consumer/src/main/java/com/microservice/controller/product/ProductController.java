@@ -82,6 +82,7 @@ public class ProductController {
 	   @GetMapping("/findProductByCategoryCode/{categoryCode}")
 		public ServerResponse findProductByCategoryCode(@PathVariable("categoryCode")String categoryCode) {
 			List<Product> list = productService.findProductByCategoryCode(categoryCode);
+			logger.info("findProductByCategoryCode ===  "+list);
 			if(list!=null && list.size()!=0) {
 				return ServerResponse.createSuccess(list);
 			}

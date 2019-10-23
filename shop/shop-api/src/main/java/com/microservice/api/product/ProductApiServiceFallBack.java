@@ -54,6 +54,12 @@ public class ProductApiServiceFallBack implements FallbackFactory<ProductApiServ
 			public List<Product> findProductByCategoryCode(String categoryCode) {
 				return null;
 			}
+
+			@Override
+			public Integer updateProductStock(String productId, Integer stock) {
+				// TODO Auto-generated method stub
+				return null;
+			}
 		};
 	}
 

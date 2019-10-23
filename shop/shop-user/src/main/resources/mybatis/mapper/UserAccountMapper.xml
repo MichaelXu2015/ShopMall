@@ -27,6 +27,10 @@
 		DELETE FROM user_account WHERE user_name=#{userName}
 	</delete>
 	
+	<update id="updateUADeduction">
+		UPDATE user_account SET balance=balance-#{money} WHERE user_name=#{userName}
+	</update>
+	
 
 		
 </mapper>	

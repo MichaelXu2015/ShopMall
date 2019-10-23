@@ -27,5 +27,9 @@ public interface UserAccountApiService {
 	
 	@GetMapping("/userAccount/findUAByUnamePsd/{userName}/{payPass}")
 	public UserAccount findUAByUnamePsd(@PathVariable("userName")String userName, @PathVariable("payPass")String payPass);
+	
+	@GetMapping("/userAccount/updateUADeduction/{userName}/{money}")
+	public Integer updateUADeduction(@PathVariable("userName")String userName, @PathVariable("money")Float money);
+
 
 }

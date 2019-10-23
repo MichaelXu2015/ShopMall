@@ -44,6 +44,11 @@ public class ProductServiceImpl implements ProductService {
 		return productMapper.findProductByCategoryCode(categoryCode);
 	}
 
+	@Override
+	public Integer updateProductStock(String productId, Integer stock) {
+		return productMapper.updateProductStock(productId, stock);
+	}
+
 
 	
 

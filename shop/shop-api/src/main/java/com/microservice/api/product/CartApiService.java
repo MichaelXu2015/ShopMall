@@ -17,6 +17,6 @@ public interface CartApiService {
 	@PostMapping("/cart/insertCart")
 	public Integer insertCart(@RequestBody Cart cart);
 
-	@PutMapping("/cart/updateCartTotalPriceByUserId/{userId}/{price}")
-	public Integer updateCartTotalPriceByUserId(@PathVariable("userId")String userId,@PathVariable("price") Float price) ;
+	@PutMapping("/cart/updateCartTotalPriceByUserId/{cartId}/{price}")
+	public Integer updateCartTotalPriceByCartId(@PathVariable("cartId")String cartId,@PathVariable("price") Float price) ;
 }

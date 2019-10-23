@@ -8,9 +8,9 @@ import com.microservice.token.Token.Playload;
 
 public class JWTTokenUtil {
 	/*
-	 * 过期时间 20分钟
+	 * 过期时间 120分钟
 	 */
-	private Long expTime = Long.valueOf(20 * 60 * 1000);
+	private Long expTime = Long.valueOf(120 * 60 * 1000);
 	/*
 	 * 宽限时间，即最终过期时间 40分钟
 	 */

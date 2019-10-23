@@ -29,8 +29,8 @@ public class CartController {
 		return cartService.insertCart(cart);
 	}
 
-	@PutMapping("/updateCartTotalPriceByUserId/{userId}/{price}")
-	public Integer updateCartTotalPriceByUserId(@PathVariable("userId")String userId,@PathVariable("price") Float price) {
-		return cartService.updateCartTotalPriceByUserId(userId, price);
+	@PutMapping("/updateCartTotalPriceByUserId/{cartId}/{price}")
+	public Integer updateCartTotalPriceByUserId(@PathVariable("cartId")String cartId,@PathVariable("price") Float price) {
+		return cartService.updateCartTotalPriceByCartId(cartId, price);
 	}
 }

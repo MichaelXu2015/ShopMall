@@ -38,4 +38,9 @@ public class UserAccountServiceImpl implements UserAccountService{
 		return userAccountApiService.findUAByUnamePsd(userName, PayPassword);
 	}
 
+	@Override
+	public Integer updateUADeduction(String userName, Float money) {
+		return userAccountApiService.updateUADeduction(userName, money);
+	}
+
 }

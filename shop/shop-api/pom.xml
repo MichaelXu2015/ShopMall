@@ -58,6 +58,16 @@
 	
   </dependencies>
   
+  
+  <build>
+	  <plugins>
+	      <plugin>
+	          <groupId>org.springframework.boot</groupId>
+	         <artifactId>spring-boot-maven-plugin</artifactId>
+	      </plugin>
+	  </plugins>
+    </build>
+  
   <!--  此处引用的包,在其他model里能用,因为其他model引用了此shop-api工程
   		maven的传递性  -->
  <!--  <dependencies>

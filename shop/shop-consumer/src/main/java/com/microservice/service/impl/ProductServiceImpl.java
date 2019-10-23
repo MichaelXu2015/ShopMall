@@ -39,6 +39,11 @@ public class ProductServiceImpl implements ProductService{
 	public List<Product> findProductByCategoryCode(String categoryCode) {
 		return productApiService.findProductByCategoryCode(categoryCode);
 	}
+
+	@Override
+	public Integer updateProductStock(String productId, Integer stock) {
+		return productApiService.updateProductStock(productId, stock);
+	}
 	
 	
 
